@@ -1,10 +1,6 @@
-from asyncore import read
-from urllib import request
 from rest_framework import serializers
 from authentication.serializers import UserSerializer
 from .models import *
-from rest_framework.response import Response
-from rest_framework import status
 
 
 class FoodDetailsSerializer(serializers.ModelSerializer):

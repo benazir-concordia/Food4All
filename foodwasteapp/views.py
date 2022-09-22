@@ -1,28 +1,18 @@
 from datetime import datetime, timedelta
 import io
-from django.http import HttpResponse
 from django.shortcuts import render
-from django.contrib.contenttypes.models import ContentType
 from .models import *
 from rest_framework import viewsets, permissions, generics
 from .serializers import *
 from authentication.models import User
 from django.db.models import Q
 from rest_framework import permissions
-from django.utils import timezone
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
-from rest_framework import status
 from rest_framework import generics, mixins
-import django_filters
 from django_filters.rest_framework import DjangoFilterBackend, FilterSet
 from rest_framework.filters import OrderingFilter, SearchFilter
-from rest_framework.parsers import MultiPartParser
-
-
-# Pagination for REST FRAMEWORK TAKEN
-from rest_framework.pagination import LimitOffsetPagination
 
 # Create your views here.
 
@@ -75,7 +65,7 @@ class PostedFoodAPI(APIView):
         if request.GET.get('type') == "requested_food":
 
             fooddetails = FoodDetails.objects.filter(
-                status="requested", requested_by=request.user)
+                ~Q(status="available"), requested_by=request.user)
 
             foodDetails_serializer = FoodDetailsSerializer(
                 fooddetails, many=True)

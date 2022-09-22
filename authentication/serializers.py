@@ -11,36 +11,6 @@ from django.contrib.auth.hashers import make_password
 # User Serializer
 
 
-class PermissionSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Permission
-        fields = '__all__'
-
-
-class GroupSerializer(serializers.ModelSerializer):
-    # permission_details = serializers.SerializerMethodField(
-    #     'get_permission_details')
-
-    # def get_permission_details(self, instance):
-    #     permissions = instance.permissions
-    #     serializer = PermissionSerializer(permissions, many=True)
-    #     return serializer.data
-
-    class Meta:
-        model = Group
-        fields = '__all__'
-
-    def validate(self, data):
-        name = data['name']
-        if name == "Admin":
-            message = str('Can Not Create Admin as Group Name')
-            raise serializers.ValidationError(
-                {'Invalid Group Name': message})
-        else:
-            return data
-
-
 class UserCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -73,25 +43,6 @@ class UserShortSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'full_name', 'first_name',
                   'photo', 'email', 'username', ]
-
-
-class UserExcelListingField(Field):
-    def to_representation(self, value):
-        # first_name = value.first_name
-        return "{0} {1}".format(value.first_name, value.last_name)
-
-    def to_internal_value(self, data):
-        try:
-            try:
-                return User.objects.get(Q(first_name__iexact=data.lower()) | Q(last_name__iexact=data.lower()) | Q(username__iexact=data.lower()))
-            except User.MultipleObjectsReturned:
-                raise serializers.ValidationError(
-                    'Multiple Users Found for Given Data: ' + str(data)
-                )
-        except User.DoesNotExist:
-            raise serializers.ValidationError(
-                'User does not exists: ' + str(data)
-            )
 
 
 class PasswordSerializer(serializers.Serializer):
