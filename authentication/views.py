@@ -1,5 +1,5 @@
 from .models import *
-from rest_framework import viewsets, permissions, generics
+from rest_framework import permissions, generics
 from rest_framework.response import Response
 from rest_framework import status
 from knox.models import AuthToken
@@ -7,20 +7,11 @@ from .serializers import *
 from django.db.models import Q
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import permissions
-from django.core.exceptions import PermissionDenied
-from django.utils import timezone
 from rest_framework.views import APIView
-from django.shortcuts import get_object_or_404
-from django.contrib.contenttypes.models import ContentType
-
-from django.contrib.auth.models import Group
-# Pagination for REST FRAMEWORK TAKEN
-from rest_framework.pagination import LimitOffsetPagination
 
 # NEW
 from rest_framework import generics, mixins
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.parsers import MultiPartParser
 
 
 class UserAPI(generics.RetrieveAPIView):

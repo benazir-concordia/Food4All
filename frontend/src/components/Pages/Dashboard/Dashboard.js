@@ -100,18 +100,18 @@ class Dashboard extends Component {
                 {itm.quantity?<p>Food Quantity: {itm.quantity}</p>:null}
                 {user=="donor"? 
                   <p>Status: {itm.status} 
-                  {itm.status==("requested" || "accepted") ?
+                  {itm.status != "available" ?
                   <div>
                     <p>Requested By: {itm.requested_by_obj.name}<br/>
                     Phone: {itm.requested_by_obj.phone}
                     </p>
-                    <Button
+                    {/* <Button
                           onClick={() => {
                               this.accept_food(itm);
                           }}
                       >
                         Accept
-                    </Button>
+                    </Button> */}
                   </div>
                   
                   : null
