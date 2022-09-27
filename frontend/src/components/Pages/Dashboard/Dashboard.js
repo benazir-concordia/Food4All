@@ -87,11 +87,22 @@ class Dashboard extends Component {
             :null}
            
           <h1>List of Posted Food</h1>
+          {/* <LoadScript
+        googleMapsApiKey="AIzaSyAOk7NT2sEQoJAGGWIobaoJM1kmnE4zgho"
+      >
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={10}
+        >
+        </GoogleMap>
+      </LoadScript> */}
+          {/* <input type="text" placeholder="*Begin typing address" id="id-google-address" name="google_address"/> */}
           <br />
           {this.props.all_posted_food?
           this.props.all_posted_food.map((itm, i)=>(
             // <Link key={i} to={`/app/food-details/${itm.id}`}>
-              <div style={{   background: '#615c5f29',
+              <div key={i} style={{   background: '#615c5f29',
                               padding: '20px',
                               borderRadius: '20px',
                               marginBottom: '20px'}}>

@@ -9,6 +9,7 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -29,7 +30,9 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- <input type="text" placeholder="*Begin typing address" id="id-google-address" name="google_address"> -->
     <div id="root" style="height: 100%"></div>
+    
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -40,5 +43,13 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- <script type="text/javascript">
+
+      var google_api_key = "{{google_api_key|safe}}";
+      var base_country = "{{base_country|safe}}";
+    
+    </script> -->
+    
+    <!-- <script src="%PUBLIC_URL%/google_places.js"></script> -->
   </body>
 </html>
