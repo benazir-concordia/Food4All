@@ -7,7 +7,7 @@ from authentication.models import User
 class FoodDetails(models.Model):
     posted_by = models.ForeignKey(
         User, on_delete=models.CASCADE)
-    requested_by = models.OneToOneField(
+    requested_by = models.ForeignKey(
         User, related_name="requested_user", blank=True, null=True, on_delete=models.CASCADE)
     food_name = models.CharField(
         max_length=255, blank=True, null=True)

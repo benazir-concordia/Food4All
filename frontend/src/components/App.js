@@ -14,7 +14,7 @@ import CreateUser from "./Pages/CreateUser/CreateUser";
 import Profile from "./Pages/Profile/Profile";
 import Dashboard from "./Pages/Dashboard/Dashboard"
 import RequestedFood from "./Pages/RequestedFood/RequestedFood"
-// import ReceiverDashboard from "./Pages/Dashboard/ReceiverDashboard,"
+import ReceiverDashboard from "./Pages/Dashboard/ReceiverDashboard,"
 import FoodDetails from "./Pages/FoodDetails/FoodDetails"
 import Page404 from "./Common/Page404/Page404";
 
@@ -40,8 +40,10 @@ class App extends Component {
         <Route path="/create-user" component={CreateUser} />
         <PrivateRoute path="/app/change-password" component={Profile} />
         <PrivateRoute path="/app/food-post" component={FoodDetails} />
-        
         <PrivateRoute path="/app/requested_food" component={RequestedFood} />
+
+        <PrivateRoute path="/app/map" component={ReceiverDashboard} />
+
         <PrivateRoute exact path="/" component={Dashboard} />
       </Switch>
     );
