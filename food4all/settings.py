@@ -102,6 +102,7 @@ DATABASES = {
 #         'NAME': 'foodappdb'
 #     }
 # }
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
@@ -112,6 +113,17 @@ DATABASES = {
                 # 'host': 'mongodb+srv://food4all-server:JQ5FvncCkS7TyALJJDpef6ZBWkDAjJ2KnJERltUuQfJIJgqEnGMePrd5YiukWLficdoXBdndPV9VACDblsZu0g==@food4all-server.mongo.cosmos.azure.com:10255/food4all-database?retryWrites=true&w=majority'
 
         }
+    }
+}
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'food4all-database',
+        'HOST': 'mongodb://food4all-server:JQ5FvncCkS7TyALJJDpef6ZBWkDAjJ2KnJERltUuQfJIJgqEnGMePrd5YiukWLficdoXBdndPV9VACDblsZu0g==@food4all-server.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@food4all-server@',
+        # 'HOST': 'mongodb://food4all-server:JQ5FvncCkS7TyALJJDpef6ZBWkDAjJ2KnJERltUuQfJIJgqEnGMePrd5YiukWLficdoXBdndPV9VACDblsZu0g==@food4all-server.mongo.cosmos.azure.com:10255/food4all-database',
+        'USER': 'food4all-server',
+        'PASSWORD': 'JQ5FvncCkS7TyALJJDpef6ZBWkDAjJ2KnJERltUuQfJIJgqEnGMePrd5YiukWLficdoXBdndPV9VACDblsZu0g==',
     }
 }
 
