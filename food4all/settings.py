@@ -96,14 +96,27 @@ DATABASES = {
 }
 '''
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'foodappdb'
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'foodappdb'
+        'NAME': 'your-db-name',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+                'host': 'mongodb://food4all-server:JQ5FvncCkS7TyALJJDpef6ZBWkDAjJ2KnJERltUuQfJIJgqEnGMePrd5YiukWLficdoXBdndPV9VACDblsZu0g==@food4all-server.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@food4all-server@'
+                # 'host': 'mongodb+srv://food4all-server:JQ5FvncCkS7TyALJJDpef6ZBWkDAjJ2KnJERltUuQfJIJgqEnGMePrd5YiukWLficdoXBdndPV9VACDblsZu0g==@food4all-server.mongo.cosmos.azure.com:10255/food4all-database?retryWrites=true&w=majority'
+
+        }
     }
 }
 
-
+# 'host': 'mongodb+srv://<username>:<password>@<atlas cluster>/<myFirstDatabase>?retryWrites=true&w=majority'
+# 'mongodb+srv://username:password@HOSTNAME/DATABASE_NAME?authSource=admin&tls=true&tlsCAFile=<PATH_TO_CA_FILE>'
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
